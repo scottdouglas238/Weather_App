@@ -1,11 +1,11 @@
 $(document).ready(function () {
 
-    $(".btn-search").on("click", function (e) {
-        e.preventDefault();
+    $(".btn-search").on("click", function () {
+        
 
-        var cityNameInput = $("#citySearch").val();
-        var cityAPIKey = "fe3159840b5c26414006c3611a7f67ab";
-        var cityQueryURL = "api.openweathermap.org/data/2.5/weather?q=" + cityNameInput + "&api-key=" + cityAPIKey;
+        let cityNameInput = $("#citySearch").val();
+        // let APIKey = "81b8efee373b3e6d158e294464dbc522";
+        let cityQueryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + cityNameInput + "&apid=81b8efee373b3e6d158e294464dbc522";
 
         $.ajax({
             url: cityQueryURL,
