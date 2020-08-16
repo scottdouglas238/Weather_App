@@ -1,0 +1,14 @@
+#container {
+    margin-left: 20px;
+}
+.card-text {
+    font-size: 14px;
+    padding: 5px;
+}
+.red {
+    background-color: red;
+    color: white;
+}
+.card {
+    width: 700px;
+}
