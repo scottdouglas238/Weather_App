@@ -19,7 +19,7 @@ $(document).ready(function () {
                 cityNm = returnedWeather[11];
                 cityName = returnedWeather[11] + " " + "(" + date + ")";
                 temperature = ((returnedWeather[3].temp - 273.15) * 1.80 + 32).toFixed(1);
-                console.log(temperature);
+                // console.log(temperature);
                 humidity = returnedWeather[3].humidity;
                 windSpeed = returnedWeather[5].speed;
                 iconNumber = (returnedWeather2[3])
@@ -44,35 +44,56 @@ $(document).ready(function () {
                         })
                             .then(function (response3) {
                                 // console.log(response3);
-                                
+
                                 var fiveDayForecast = Object.values(response3);
-                                var fDate5 = fiveDayForecast[3][0].dt_txt.slice(5, 10) + "-" + fiveDayForecast[3][0].dt_txt.slice(0, 4);
-                                var iconNumber5 = fiveDayForecast[3][0].weather[0].icon;
-                                var temperature5 = ((fiveDayForecast[3][0].main.temp - 273.15) * 1.80 + 32).toFixed(2);
-                                var humidity5 = fiveDayForecast[3][0].main.humidity;
+                                // console.log(fiveDayForecast);
+                                var targetedF5 = fiveDayForecast[3].slice(2, 40);
+                                console.log(targetedF5);
+                                //for loop goes here
+                                
+                                
+                                
+                                // function pushToHash(key, value) {
+                                //     for (var t = 0, x = 0; t < value.length; t++, x += 2) {
+                                //         MQHash[key[t]] = value.slice(0, lineLength[x]);
+                                //     }
+                                // }
+                               
+                            //   while(element.length < 5){
+                                
+                                  for (var x = 0, y = 0; x < targetedF5.length; x++, y += 8) {
+                                    var element = targetedF5[y];
+                                    
+                                // var fDate5 = element.dt_txt.slice(5, 10) + "-" + element.dt_txt.slice(0, 4);
+                                // var iconNumber5 = element.weather[0].icon;
+                                // var temperature5 = ((element.main.temp - 273.15) * 1.80 + 32).toFixed(2);
+                                var humidity5 = element.main.humidity;
+                                console.log(humidity5);
                                 // console.log(fiveDayForecast);
                                 // console.log();
+                                
+                                // var card5 = $("<div>");
+                                // card5.attr("class", "card text-white bg-primary mb-3 w-25 blueCard");
+                                // var newResult5 = $("<div>");
+                                // newResult5.attr("id", "new-result5");
+                                // newResult5.attr("class", "card-body");
+                                // var fDateFive = $("<h3>");
+                                // fDateFive.attr("class", "card-title").text(fDate5);
+                                // fDateFive.attr("id", "dateFont")
+                                // var iconNumberFive = $("<h3>");
+                                // iconNumberFive.attr("class", "card-text").append("<img src = 'http://openweathermap.org/img/wn/" + iconNumber5 + "@2x.png'>");
+                                // var temperatureFive = $("<h3>");
+                                // temperatureFive.attr("class", "card-text").text("Temp: " + temperature5 + " °F");
+                                // var humidityFive = $("<h3>");
+                                // humidityFive.attr("class", "card-text").text("Humidity: " + humidity5 + "%");
+                                // newResult5.append(fDateFive, iconNumberFive, temperatureFive, humidityFive);
+                                // $("#fiveDayForecast").append(card5);
+                                // card5.append(newResult5);
+                                }
+                        //    }
+                            
+            
 
-                                var card5 = $("<div>");
-                                card5.attr("class", "card text-white bg-primary mb-3 w-25 blueCard");
-                                var newResult5 = $("<div>");
-                                newResult5.attr("id", "new-result5");//this may cause issues
-                                newResult5.attr("class", "card-body");
-                                var fDateFive = $("<h3>");
-                                fDateFive.attr("class", "card-title").text(fDate5);
-                                fDateFive.attr("id", "dateFont")
-                                var iconNumberFive = $("<h3>");
-                                iconNumberFive.attr("class", "card-text").append("<img src = 'http://openweathermap.org/img/wn/" + iconNumber5 + "@2x.png'>");
-                                var temperatureFive = $("<h3>");
-                                temperatureFive.attr("class", "card-text").text("Temp: " + temperature5 + " °F");
-                                var humidityFive = $("<h3>");
-                                humidityFive.attr("class", "card-text").text("Humidity: " + humidity5 + "%");
-                                newResult5.append(fDateFive, iconNumberFive, temperatureFive, humidityFive);
-                                $("#fiveDayForecast").append(card5);
-                                card5.append(newResult5);
-
-                                //     for (let i = 0; i < returnedWeather.length; i++) {
-                                //     let returned = returnedWeather[i];
 
                                 //     //creating elements of the card dynamically
                                 var card = $("<div>");
@@ -103,7 +124,7 @@ $(document).ready(function () {
             });
     });
     var date = moment().format('MMMM Do YYYY')
-    console.log(date);
+    // console.log(date);
 });
 
 
