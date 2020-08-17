@@ -74,7 +74,7 @@ $(document).ready(function () {
                                 // console.log();
                                 
                                 var card5 = $("<div>");
-                                card5.attr("class", "card text-white bg-primary mb-2 w-25 blueCard");
+                                card5.attr("class", "card text-white bg-primary mb-2 w-25 blueCard col");
                                 var newResult5 = $("<div>");
                                 newResult5.attr("id", "new-result5");
                                 newResult5.attr("class", "card-body");
