@@ -43,32 +43,33 @@ $(document).ready(function () {
                             method: "GET"
                         })
                             .then(function (response3) {
-                                // console.log(response3);
+                                console.log(response3);
 
                                 var fiveDayForecast = Object.values(response3);
                                 // console.log(fiveDayForecast);
+
+                                // for (let i = 0; i < fiveDayForecast.length; i++) {
+                                //     if (fiveDayForecast[i].dt_txt.substring(11) === wTime)
+                                //     console.log(fiveDayForecast[i].dt_txt.substring(11))
+                                    
+                                // }
+                                
                                 var targetedF5 = fiveDayForecast[3].slice(0, 40);
                                 console.log(targetedF5);
+                                var wTime = targetedF5[0].dt_txt.substring(11)
+                                console.log(wTime);
                                 //for loop goes here
                                 
                                 
-                                
-                                // function pushToHash(key, value) {
-                                //     for (var t = 0, x = 0; t < value.length; t++, x += 2) {
-                                //         MQHash[key[t]] = value.slice(0, lineLength[x]);
-                                //     }
-                                // }
-                               
-                            //   while(element.length < 40){
-                                
-                                  for (var y = 0; y < 40; y+=8) {
+                                  for (var y = 0; y < 40; y++) {
                                     var element = targetedF5[y];
+                                    if(targetedF5[y].dt_txt.substring(11) === "15:00:00") {
                                     
                                 var fDate5 = element.dt_txt.slice(5, 10) + "-" + element.dt_txt.slice(0, 4);
                                 var iconNumber5 = element.weather[0].icon;
                                 var temperature5 = ((element.main.temp - 273.15) * 1.80 + 32).toFixed(2);
                                 var humidity5 = element.main.humidity;
-                                console.log(humidity5);
+                                // console.log(humidity5);
                                 // console.log(fiveDayForecast);
                                 // console.log();
                                 
@@ -89,7 +90,7 @@ $(document).ready(function () {
                                 newResult5.append(fDateFive, iconNumberFive, temperatureFive, humidityFive);
                                 $("#fiveDayForecast").append(card5);
                                 card5.append(newResult5);
-                                
+                                    }   
                            }
                             
             
