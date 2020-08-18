@@ -4,7 +4,9 @@ $(document).ready(function () {
 
 
         let cityNameInput = $("#citySearch").val();
-
+        let key = cityNameInput.slice(0, 3);
+        console.log(key);
+        localStorage.setItem(key, cityNameInput);
         let cityQueryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + cityNameInput + "&appid=81b8efee373b3e6d158e294464dbc522";
 
         $.ajax({
@@ -43,7 +45,7 @@ $(document).ready(function () {
                             method: "GET"
                         })
                             .then(function (response3) {
-                                console.log(response3);
+                                // console.log(response3);
 
                                 var fiveDayForecast = Object.values(response3);
                                 // console.log(fiveDayForecast);
@@ -60,7 +62,7 @@ $(document).ready(function () {
                                 console.log(wTime);
                                 //for loop goes here
                                 
-                                
+                                $("#fiveDayForecast").html("");
                                   for (var y = 0; y < 40; y++) {
                                     var element = targetedF5[y];
                                     if(targetedF5[y].dt_txt.substring(11) === "15:00:00") {
@@ -90,13 +92,14 @@ $(document).ready(function () {
                                 newResult5.append(fDateFive, iconNumberFive, temperatureFive, humidityFive);
                                 $("#fiveDayForecast").append(card5);
                                 card5.append(newResult5);
-                                    }   
+                           }   
                            }
                             
             
 
 
                                 //     //creating elements of the card dynamically
+                                $("#results").html("");
                                 var card = $("<div>");
                                 card.attr("class", "card");
                                 var newResult = $("<div>");
@@ -116,9 +119,19 @@ $(document).ready(function () {
                                 newResult.append(cityNameD, temperatureD, humidityD, windSpeedD, ultraVioletD);
                                 $("#results").append(card);
                                 card.append(newResult);
-
-                            })
-                    })
+                                
+                                var button2 = $("<button>").attr("class", "btn btn-dark").append(cityNameInput);
+                                $("#cityBtn").append(button2);
+                                $(".btn-dark").on("click", function(){
+                                    var weWilSee = localStorage.getItem(key, cityNameInput);
+                                    console.log(weWilSee);
+                                    $("#results").attr("style", "display: none");
+                                    $("#fiveDayForecast").attr("style", "display: none");
+                                    
+                                }); 
+                                
+                            });
+                    });
 
 
 
