@@ -7,7 +7,7 @@ $(document).ready(function () {
             let key = cityNameInput.slice(0, 3);
             
             // console.log(key);
-            localStorage.setItem("city", cityNameInput);
+            localStorage.setItem(key, cityNameInput);
             let cityQueryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + cityNameInput + "&appid=81b8efee373b3e6d158e294464dbc522";
     
             $.ajax({
