@@ -30,7 +30,7 @@ $(document).ready(function () {
                     longitude = returnedWeather[0].lon;
     
     
-                    let UvQueryURL = "http://api.openweathermap.org/data/2.5/uvi?appid=81b8efee373b3e6d158e294464dbc522&lat=" + latitude + "&lon=" + longitude;
+                    let UvQueryURL = "https://api.openweathermap.org/data/2.5/uvi?appid=81b8efee373b3e6d158e294464dbc522&lat=" + latitude + "&lon=" + longitude;
                     $.ajax({
                         url: UvQueryURL,
                         method: "GET"
@@ -40,7 +40,7 @@ $(document).ready(function () {
                             var ultraViolet = returnedWeather2[4];
                             // console.log(ultraViolet)
     
-                            let forecast = "http://api.openweathermap.org/data/2.5/forecast?q=" + cityNm + "&appid=81b8efee373b3e6d158e294464dbc522"
+                            let forecast = "https://api.openweathermap.org/data/2.5/forecast?q=" + cityNm + "&appid=81b8efee373b3e6d158e294464dbc522"
                             $.ajax({
                                 url: forecast,
                                 method: "GET"
@@ -160,7 +160,7 @@ $(document).ready(function () {
                                                 longitude = returnedWeather[0].lon;
     
     
-                                                let UvQueryURL = "http://api.openweathermap.org/data/2.5/uvi?appid=81b8efee373b3e6d158e294464dbc522&lat=" + latitude + "&lon=" + longitude;
+                                                let UvQueryURL = "https://api.openweathermap.org/data/2.5/uvi?appid=81b8efee373b3e6d158e294464dbc522&lat=" + latitude + "&lon=" + longitude;
                                                 $.ajax({
                                                     url: UvQueryURL,
                                                     method: "GET"
@@ -170,7 +170,7 @@ $(document).ready(function () {
                                                         var ultraViolet = returnedWeather2[4];
                                                         // console.log(ultraViolet)
     
-                                                        let forecast = "http://api.openweathermap.org/data/2.5/forecast?q=" + weWilSee + "&appid=81b8efee373b3e6d158e294464dbc522"
+                                                        let forecast = "https://api.openweathermap.org/data/2.5/forecast?q=" + weWilSee + "&appid=81b8efee373b3e6d158e294464dbc522"
                                                         $.ajax({
                                                             url: forecast,
                                                             method: "GET"
